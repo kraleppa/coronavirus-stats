@@ -27,6 +27,7 @@ def number_of_tests():
     create_plot(Type.NUMBER_OF_TESTS)
     return render_template('number_of_tests.html')
 
+
 @app.route("/daily_number_of_tests")
 def daily_number_of_tests():
     create_plot(Type.DAILY_NUMBER_OF_TESTS)

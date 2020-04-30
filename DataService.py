@@ -13,10 +13,12 @@ class DataService:
     def get_data(self, data_type):
         csv_iterator = iter(self.csv_reader)
         next(csv_iterator)
-        result_lit = []
+        dates_list = []
+        data_list = []
         for row in csv_iterator:
-            result_lit.append((row[Type.TIMESTAMP], row[data_type]))
-        return result_lit
+            dates_list.append(row[Type.TIMESTAMP])
+            data_list.append(int(row[data_type]))
+        return dates_list, data_list
 
 
 if __name__ == "__main__":

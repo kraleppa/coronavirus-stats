@@ -18,6 +18,8 @@ def parse_to_title(data_type):
         return "Liczba osób pod nadzorem medycznym"
     elif data_type == Type.NUMBER_OF_TESTS:
         return "Liczba przeprowadzonych testów na COVID-19"
+    elif data_type == Type.DAILY_NUMBER_OF_TESTS:
+        return "Dzienna liczba przeprowadzonych testów na COVID-19"
 
 
 class Type(IntEnum):
@@ -28,6 +30,7 @@ class Type(IntEnum):
     IN_THE_HOSPITAL = 4,
     IN_QUARANTINE = 5,
     UNDER_MEDICAL_SUPERVISION = 6,
-    NUMBER_OF_TESTS = 7
+    NUMBER_OF_TESTS = 7,
+    DAILY_NUMBER_OF_TESTS = 8
 
 

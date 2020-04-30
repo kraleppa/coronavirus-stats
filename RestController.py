@@ -22,5 +22,16 @@ def in_quarantine():
     return render_template('in_quarantine.html')
 
 
+@app.route("/number_of_tests")
+def number_of_tests():
+    create_plot(Type.NUMBER_OF_TESTS)
+    return render_template('number_of_tests.html')
+
+@app.route("/daily_number_of_tests")
+def daily_number_of_tests():
+    create_plot(Type.DAILY_NUMBER_OF_TESTS)
+    return render_template('daily_number_of_tests.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

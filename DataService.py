@@ -19,8 +19,3 @@ class DataService:
             dates_list.append(row[Type.TIMESTAMP])
             data_list.append(int(row[data_type]))
         return dates_list, data_list
-
-
-if __name__ == "__main__":
-    service = DataService()
-    print(service.get_data(Type.CONFIRMED))

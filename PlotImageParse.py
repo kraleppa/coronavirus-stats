@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 from DataService import DataService
 from TypeEnum import Type
-import numpy as np
 
 params = {'legend.fontsize': 'x-large',
           'figure.figsize': (20, 12),
@@ -24,7 +23,3 @@ class PlotParser:
         plt.xticks(rotation=90)
         plt.savefig(f"img/{data_type.parse_to_title()}")
 
-
-if __name__ == "__main__":
-    parser = PlotParser()
-    parser.create_plot(Type.CONFIRMED)

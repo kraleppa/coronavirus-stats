@@ -15,11 +15,11 @@ class Type(IntEnum):
         if self.TIMESTAMP:
             return "Data"
         elif self.CONFIRMED:
-            return "Liczba przypadków"
+            return "Liczba przypadków zachorowań na COVID-19"
         elif self.DEATHS:
-            return "Liczba śmierci"
+            return "Liczba śmierci spowodowanych przez COVID-19"
         elif self.RECOVERED:
-            return "Liczba wyzdrowień"
+            return "Liczba wyzdrowień z COVID-19"
         elif self.IN_THE_HOSPITAL:
             return "Liczba osób hospitalizowanych"
         elif self.IN_QUARANTINE:
@@ -27,4 +27,4 @@ class Type(IntEnum):
         elif self.UNDER_MEDICAL_SUPERVISION:
             return "Liczba osób pod nadzorem medycznym"
         elif self.NUMBER_OF_TESTS:
-            return "Liczba przeprowadzonych testów"
+            return "Liczba przeprowadzonych testów na COVID-19"

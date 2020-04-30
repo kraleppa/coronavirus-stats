@@ -2,20 +2,18 @@ import csv
 from TypeEnum import Type
 
 
-class DataService:
-    def __init__(self):
-        try:
-            file = open("CoronavirusPL - General.csv")
-            self.csv_reader = csv.reader(file, delimiter=",")
-        except FileNotFoundError:
-            exit(1)
+def get_data(data_type):
+    dates_list = []
+    data_list = []
+    try:
+        file = open("CoronavirusPL - General.csv")
+        csv_reader = csv.reader(file, delimiter=",")
 
-    def get_data(self, data_type):
-        csv_iterator = iter(self.csv_reader)
-        next(csv_iterator)
-        dates_list = []
-        data_list = []
-        for row in csv_iterator:
+        for row in csv_reader:
+            if row[0] == "Timestamp":
+                continue
             dates_list.append(row[Type.TIMESTAMP])
             data_list.append(int(row[data_type]))
-        return dates_list, data_list
+    except FileNotFoundError:
+        exit(1)
+    return dates_list, data_list

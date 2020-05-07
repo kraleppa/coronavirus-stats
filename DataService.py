@@ -1,3 +1,4 @@
+
 import csv
 from TypeEnum import Type
 import requests
@@ -10,7 +11,6 @@ def refresh_data():
     source = requests.get(URL)
     if source.ok:
         soup = BeautifulSoup(source.text, 'html.parser')
-        print("aaa")
         f = open("data.csv", "w")
         f.write(soup.prettify())
         f.close()

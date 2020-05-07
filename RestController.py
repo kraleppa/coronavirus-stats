@@ -39,7 +39,3 @@ def number_of_tests():
 @app.route("/daily_number_of_tests")
 def daily_number_of_tests():
     return send_file("static/images/Dzienna liczba przeprowadzonych testów na COVID-19.png", mimetype='image/png')
-
-
-if __name__ == '__main__':
-    app.run()

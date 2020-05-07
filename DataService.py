@@ -1,12 +1,26 @@
 import csv
 from TypeEnum import Type
+import requests
+from bs4 import BeautifulSoup
+
+URL = 'https://raw.githubusercontent.com/dtandev/coronavirus/master/data/CoronavirusPL%20-%20General.csv'
+
+
+def refresh_data():
+    source = requests.get(URL)
+    if source.ok:
+        soup = BeautifulSoup(source.text, 'html.parser')
+        print("aaa")
+        f = open("data.csv", "w")
+        f.write(soup.prettify())
+        f.close()
 
 
 def get_data(data_type: Type):
     dates_list = []
     data_list = []
     try:
-        file = open("CoronavirusPL - General.csv")
+        file = open("data.csv")
         csv_reader = csv.reader(file, delimiter=",")
 
         if data_type == Type.DAILY_NUMBER_OF_TESTS:

@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from PlotImageParse import create_plot
+from PlotImageParse import create_plot, refresh_plots
+from DataService import refresh_data
 from TypeEnum import Type
 
 app = Flask(__name__)
@@ -35,4 +36,6 @@ def daily_number_of_tests():
 
 
 if __name__ == '__main__':
+    refresh_data()
+    refresh_plots()
     app.run(debug=True)

@@ -3,7 +3,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
          a {
          background-color: #1c87c9;
          border: none;
@@ -16,23 +19,46 @@
          margin: 4px 2px;
          cursor: pointer;
          }
+
+        #image {
+          width: 100%;
+          height: auto;
+        }
       </style>
 
   <title>The HTML5 Herald</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-
-
 </head>
-
 <body>
-    <img src="static/images/logo.png" style="display: block; margin-left: auto; margin-right: auto">
-    <div style="text-align: center; margin-top: 10px">
-        <a href="/infections">Zachorowania</a><br>
-        <a href="/in_quarantine">Osoby poddane kwarantannie</a><br>
-        <a href="/number_of_tests">Przeprowadzone testy (wszystkie)</a><br>
-        <a href="/daily_number_of_tests">Przeprowadzone testy (dziennie)</a><br>
-        <a href="/refresh" style="margin-top: 60%;">Odśwież</a><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+        <img src="static/images/logo2.png" class="mg-responsive center-block">
+      </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img id="image">
+      </div>
+    </div>
+    <div class="row" style="margin-top: 5em">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="loadImg('infections')">Liczba zachorowań</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="loadImg('in_quarantine')" style="margin-top: 1em">Liczba osób na kwarantannie</button>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="loadImg('number_of_tests')">Liczba wszystkich testów </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="loadImg('daily_number_of_tests')" style="margin-top: 1em">Liczba dziennych testów</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let currentImg = "infections"
+    reloadImg = () => document.getElementById("image").src=`http://0.0.0.0:8080/${currentImg}?t=` +
+            new Date().getHours() + new Date().getMinutes() + new Date().getMilliseconds();
+    loadImg = (imgName) => {currentImg = imgName; reloadImg()}
+    reloadImg();
+  </script>
 </body>
 </html>

@@ -43,6 +43,8 @@ def get_data(data_type: Type):
             for row in csv_reader:
                 if row[0] == "Timestamp":
                     continue
+                if row[data_type] == '':
+                    continue
                 dates_list.append(row[Type.TIMESTAMP])
                 data_list.append(int(row[data_type]))
     except FileNotFoundError:
